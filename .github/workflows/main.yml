@@ -31,7 +31,7 @@ jobs:
         run: npm ci
       - name: run deploy
         run: npm run build
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v4 #upload artifact
         with:
           name: my-artifact
           path: dist
@@ -39,7 +39,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v4 #download artifact
         with:
           name: my-artifact
       - name: List Artifacts
