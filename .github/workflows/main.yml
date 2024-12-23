@@ -52,7 +52,7 @@ jobs:
         with:
           name: my-artifact
       - name: output name
-        run: echo "${{ needs.test.outputs.scrip-file }}"
+        run: echo "${{ needs.test.outputs.script-file }}"
       - name: List Artifacts
         run: ls
       - name: notify
