@@ -22,9 +22,9 @@ jobs:
       - name: pulbish name
         id: publish
         run: |
-          # Find the first JavaScript file in dist/assets and set it as an output
           SCRIPT_FILE=$(find dist/assets/*.js -type f -print -quit)
-          echo "script-file=$SCRIPT_FILE" >> $GITHUB_ENV
+          echo "script-file=$SCRIPT_FILE"
+          echo "::set-output name=script-file::$SCRIPT_FILE" 
       - name: run test
         run: npm test
   build:
