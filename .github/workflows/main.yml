@@ -15,6 +15,11 @@ jobs:
           node-version: 18
       - name: Install dependency
         run: npm ci
+      - name: run build
+        run: npm run build
+      - name: pulbish name
+        id: publish
+        run: find dist/asset/*js -type f -execdir echo '::set-output name=script-file::{}' ';'
       - name: run test
         run: npm test
   build:
@@ -27,6 +32,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 18
+      - name: output name
+        run: echo "${{ needs.test.outputs.scrip-file }}"
       - name: Install dependency
         run: npm ci
       - name: run deploy
