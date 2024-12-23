@@ -23,8 +23,7 @@ jobs:
         id: publish
         run: |
           SCRIPT_FILE=$(find dist/assets/*.js -type f -print -quit)
-          echo "script-file=$SCRIPT_FILE"
-          echo "::set-output name=script-file::$SCRIPT_FILE" 
+          echo "script-file=$SCRIPT_FILE" >> $GITHUB_ENV
       - name: run test
         run: npm test
   build:
