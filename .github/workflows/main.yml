@@ -50,16 +50,6 @@ jobs:
           name: my-artifact
           path: dist
   deploy:
-    runs-on: ubuntu-latest
     needs: build
-    steps:
-      - uses: actions/download-artifact@v4 #download artifact
-        with:
-          name: my-artifact
-      - name: output name
-        run: echo "${{ needs.test.outputs.script-file }}"
-      - name: List Artifacts
-        run: ls
-      - name: notify
-        run: echo "deploying ...."
+    uses: ./.github/workflows/reuse.yaml
       
