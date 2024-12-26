@@ -52,4 +52,6 @@ jobs:
   deploy:
     needs: build
     uses: ./.github/workflows/resuse.yaml
+    with:
+      artifact-name: my-artifact
       
