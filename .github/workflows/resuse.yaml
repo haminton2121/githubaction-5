@@ -1,0 +1,11 @@
+name: Reusable Build and Test Workflow
+on:
+  workflow_call:  # Cho phép workflow này được gọi từ các workflows khác
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: List Artifacts
+        run: ls
+      - name: notify
+        run: echo "deploying ...."
