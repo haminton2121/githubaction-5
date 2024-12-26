@@ -1,10 +1,19 @@
 name: Reusable Build and Test Workflow
 on:
   workflow_call:  # Cho phép workflow này được gọi từ các workflows khác
+    inputs:
+      artifact-name:
+        description: 'Node.js version to use'
+        required: true
+        default: my-artifact
+        type: string
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/download-artifact@v4 #download artifact
+        with:
+          name: ${{ inputs.artifact-name }}
       - name: List Artifacts
         run: ls
       - name: notify
