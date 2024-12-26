@@ -54,4 +54,6 @@ jobs:
     uses: ./.github/workflows/resuse.yaml
     with:
       artifact-name: my-artifact
+#      secrets:
+#        some-secrets: ${{ secrets.some-secrets }}
       
