@@ -7,6 +7,9 @@ on:
         required: true
         default: my-artifact
         type: string
+      #secrets:
+      #  some-screts:
+      #    required: false
 jobs:
   build:
     runs-on: ubuntu-latest
